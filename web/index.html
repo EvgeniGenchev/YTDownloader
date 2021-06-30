@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>YTDownloader</title>
+          <link rel="stylesheet" href="main.css">
+     </head>
+     <body>
+          <div class="search">
+               <div class="icon"></div>
+               <div class="input">
+                    <input type="text" onkeypress="dw(event)" placeholder="Youtube Link" id="inp">
+               </div>
+               <span class="clear" onclick="document.getElementById('inp').value = ''"></span>
+          <div>
+          <script>
+               var icon = document.querySelector('.icon');
+               var search = document.querySelector('.search');
+
+               icon.onclick = function(){
+                    search.classList.toggle('active');
+               }
+
+               function showResponse(response){
+                    alert('Dowloading completed');
+               }
+
+               function dw(event){
+                    if (event.keyCode == 13) {
+                         pywebview.api.dw(document.getElementById('inp').value).then(showResponse)
+                    }
+               }
+
+          </script>
+     </body>
+</html>
